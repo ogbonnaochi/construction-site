@@ -27,3 +27,5 @@
 
 # Dotenv and similar local-only files
 *.local
+/construction-site
+!/construction-site/construction-site

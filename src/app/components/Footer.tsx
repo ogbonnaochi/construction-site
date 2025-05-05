@@ -60,7 +60,8 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Follow Us</h3>
             <div className="flex justify-center md:justify-start gap-4 mt-4 text-blue-400">
               <a href="#" className="hover:text-blue-200"><FaXTwitter size={24} /></a>
-              <a href="#" className="hover:text-blue-200"><FaInstagram size={24} /></a>
+              <a href="https://www.instagram.com/toshelconstruction042?igsh=MwhvNGt2NHd3azBtaA==" 
+              target="blank" className="hover:text-blue-200"><FaInstagram size={24} /></a>
               <a href="#" className="hover:text-blue-200"><FaLinkedin size={24} /></a>
               <a href="#" className="hover:text-blue-200"><FaYoutube size={24} /></a>
               <a href="#" className="hover:text-blue-200"><FaTiktok size={24} /></a>

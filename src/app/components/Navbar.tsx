@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-blue-shadow-md w-full fixed top-0 left-0 z-50">
+     <nav className="bg-white w-full fixed top-0 left-0 z-50">
 
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="p-1 rounded-md">
               <Image src="/logo.png" alt="Toshel Logo" width={50} height={50} />
             </div>
-            <span className="text-xl font-bold text-white hidden md:block">
+            <span className="text-xl font-bold text-black hidden md:block">
               Toshel Construction
             </span>
           </Link>
@@ -31,11 +31,13 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
-            <li><Link href="/" className="text-white hover:text-yellow-400">Home</Link></li>
-            <li><Link href="/services" className="text-white hover:text-yellow-400">Services</Link></li>
-            <li><Link href="/projects" className="text-white hover:text-yellow-400">Projects</Link></li>
-            <li><Link href="/team" className="text-white hover:text-yellow-400">Our Team</Link></li>
-            <li><Link href="/contact" className="text-white hover:text-yellow-400">Contact</Link></li>
+            <li><Link href="/" className="text-black font-bold hover:text-blue-600">Home</Link></li>
+            <Link href="/services" className="text-black font-bold hover:text-blue-600">
+    Services
+  </Link>
+            <li><Link href="/projects" className="text-black font-bold hover:text-blue-600">Projects</Link></li>
+            <li><Link href="/team" className="text-black font-bold hover:text-blue-600">Our Team</Link></li>
+            <li><Link href="/contact" className="text-black font-bold hover:text-blue-600">Contact</Link></li>
           </ul>
         </div>
 
