@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const images = ["/site-one.png", "/site-two.jpg"]; // Add your images
+const images = ["/site-one.png", "/site-two.jpg"]; // Add more images if needed
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,6 +9,15 @@ export default function Hero() {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
+  // Automatically go to next slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval); // Clear on component unmount
+  }, []);
 
   return (
     <section
@@ -35,7 +44,7 @@ export default function Hero() {
       </div>
 
       {/* Image Indicators */}
-      <div className="absolute bottom-10 flex space-x-2">
+      <div className="absolute bottom-10 flex space-x-2 z-10">
         {images.map((_, index) => (
           <button
             key={index}

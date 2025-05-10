@@ -1,7 +1,10 @@
+// lib/imageBuilder.ts
+
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from './sanity'
+import type { SanityImageSource } from '@sanity/image-url'
 
-import type { Image as SanityImageSource } from 'sanity' // ✅ works with Sanity v3+
+
 
 const builder = imageUrlBuilder(client)
 

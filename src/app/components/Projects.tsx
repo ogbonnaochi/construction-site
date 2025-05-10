@@ -8,15 +8,15 @@ export default function Projects() {
   const projects = [
     {
       id: "civil-engineering",
-      title: "Civil Engineering Construction",
+      title: "Civil Construction",
       description: "Delivering top-tier engineering solutions with precision and innovation.",
-      image: "/office.jpg",
+      image: "/road.png",
     },
     {
       id: "repair-maintenance",
       title: "Repair & Maintenance",
       description: "Ensuring long-lasting durability with expert maintenance services.",
-      image: "/images/repair-maintenance.jpg",
+      image: "/villa.png",
     },
     {
       id: "power-supply",
@@ -28,7 +28,7 @@ export default function Projects() {
       id: "consultancy",
       title: "Consultancy",
       description: "Expert guidance to help you navigate complex engineering projects.",
-      image: "/images/consultancy.jpg",
+      image: "/consult.jpg",
     },
     {
       id: "equipment",
@@ -113,12 +113,12 @@ export default function Projects() {
     {
       name: "Okonkwo Williams",
       feedback: "A team of true professionals who exceeded our expectations.",
-      image: "/images/client2.jpg",
+      image: "client2.jpg",
     },
     {
       name: "David Okeke",
       feedback: "Their expertise and dedication made all the difference in our project.",
-      image: "/public/doctor.jpg",
+      image: "doctor.jpg",
     },
   ];
 
@@ -154,11 +154,11 @@ export default function Projects() {
               <div className="p-6">
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
                 <p className="text-gray-600 mt-2">{project.description}</p>
-                <Link href={`/projects/${project.id}`} className="inline-block mt-4">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                    View Details
-                  </button>
-                </Link>
+                <Link href={`/projects/${project.id}`}>
+  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+    View Details
+  </button>
+</Link>
               </div>
             </div>
           ))}
@@ -191,7 +191,7 @@ export default function Projects() {
         <button onClick={nextTeam} className="absolute right-0 top-1/2 -translate-y-1/2 text-4xl text-gray-400 z-10">❯</button>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials */}<div>
       <section className="bg-white py-16 px-6 text-center max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-10">Client Testimonials</h2>
         <div className="relative p-8 bg-gray-100 rounded-xl shadow-lg">
@@ -202,6 +202,7 @@ export default function Projects() {
           <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-gray-500">❯</button>
         </div>
       </section>
+      </div>
     </>
   );
 }
