@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const projects = [
@@ -84,40 +85,66 @@ export default function Projects() {
   const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  return (
-    <>
-      {/* Projects Overview */}
-      {/* Projects Overview */}
-<section id="projects" className="max-w-7xl mx-auto py-16 px-6 text-center bg-white">
-  <h2 className="text-5xl font-bold text-gray-900 mb-10">Our Projects</h2>
-  <p className="text-lg text-gray-600 mb-12">Explore our service categories below.</p>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-    {projects.map((project) => (
-      <div
-        key={project.id}
-        className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:ring-2 hover:ring-blue-300 transform hover:scale-105 transition-all duration-300 ease-in-out group"
+return (
+  <>
+    {/* Projects Overview */}
+    {/* Projects Section */}
+    <section
+      id="projects"
+      className="relative py-24 px-6 lg:px-20 text-center overflow-hidden bg-white dark:bg-[#0c0c0c]"
+    >
+      {/* Optional Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-10"
       >
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={400}
-          height={250}
-          className="w-full h-56 object-cover rounded-t-2xl transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="p-6">
-          <h3 className="text-2xl font-semibold text-gray-800">{project.title}</h3>
-          <p className="text-gray-600 mt-2">{project.description}</p>
-          <Link href={`/projects/${project.id}`} className="inline-block mt-4">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-              View Details
-            </button>
-          </Link>
+        <source src="/video-bg.mp4" type="video/mp4" />
+      </video>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          Our Projects
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-16">
+          Explore the key areas where we deliver value and excellence.
+        </p>
+
+        <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="rounded-3xl bg-white/80 dark:bg-white/10 backdrop-blur-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out overflow-hidden"
+            >
+              <div className="relative w-full h-56">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover rounded-t-3xl transition duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 text-left">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                <Link href={`/projects/${project.id}`}>
+                  <button className="bg-blue-600 text-white font-medium px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+                    View Project
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</section>
+    </section>
 
 
       {/* Team Section */}
