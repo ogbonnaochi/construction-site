@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <Mail className="text-blue-600" />
-              <p>contact@yourcompany.com</p>
+              <p>contact@toshelltd.com</p>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="text-blue-600" />
@@ -60,7 +60,7 @@ export default function Contact() {
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="text-blue-600" />
-              <p>1234 Business Street, NY, USA</p>
+              <p>Port Harcourt - Enugu Expy, Independence Layout Phase II, Enugu, Nigeria 400102</p>
             </div>
           </div>
         </div>
