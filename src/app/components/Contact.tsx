@@ -22,7 +22,8 @@ export default function Contact() {
   };
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center bg-gray-100 px-6 py-16">
+    <section id="contact" className="w-full min-h-screen flex items-center justify-center bg-gray-100 px-6 py-16">
+
       <div className="max-w-4xl w-full bg-white shadow-xl rounded-xl p-8 relative overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -66,27 +67,33 @@ export default function Contact() {
 
         {/* Newsletter Subscription */}
         <div className="mt-12 p-6 bg-blue-50 rounded-lg text-center shadow-md relative z-10">
-          <h3 className="text-xl font-semibold text-gray-800">Subscribe to Our Newsletter</h3>
-          <p className="text-gray-600 mb-4">Stay updated with our latest news and offers.</p>
-          {!subscribed ? (
-            <form className="flex items-center gap-2 justify-center" onSubmit={handleSubscription}>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                required 
-                className="p-3 w-64 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button type="submit" className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                Subscribe
-              </button>
-            </form>
-          ) : (
-            <p className="text-green-600 font-semibold">Thank you for subscribing!</p>
-          )}
-        </div>
-      </div>
+  <h3 className="text-xl font-semibold text-gray-800">Subscribe to Our Newsletter</h3>
+  <p className="text-gray-600 mb-4">Stay updated with our latest news and offers.</p>
+  {!subscribed ? (
+    <form 
+      className="flex flex-col sm:flex-row items-center gap-2 justify-center" 
+      onSubmit={handleSubscription}
+    >
+      <input 
+        type="email" 
+        placeholder="Enter your email" 
+        required 
+        className="p-3 w-full sm:w-64 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button 
+        type="submit" 
+        className="p-3 w-full sm:w-auto bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      >
+        Subscribe
+      </button>
+    </form>
+  ) : (
+    <p className="text-green-600 font-semibold">Thank you for subscribing!</p>
+  )}
+</div>
+</div>
     </section>
   );
 }

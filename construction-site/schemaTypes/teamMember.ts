@@ -1,38 +1,17 @@
-import { defineField, defineType } from 'sanity'
-
-export default defineType({
+export default {
   name: 'teamMember',
-  title: 'Team Member',
   type: 'document',
+  title: 'Team Member',
   fields: [
-    defineField({
-      name: 'name',
-      title: 'Full Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'specialization',
-      title: 'Specialization',
-      type: 'string',
-    }),
-    defineField({
-      name: 'experience',
-      title: 'Experience',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Photo',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
+    { name: 'name', type: 'string', title: 'Full Name' },
+    { name: 'specialization', type: 'string', title: 'Specialization' },
+    { name: 'experience', type: 'string', title: 'Experience' },
+    { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } },
+    {
       name: 'skills',
-      title: 'Skills',
       type: 'array',
-      of: [{ type: 'string' }],
-    }),
-  ],
-})
+      title: 'Skills',
+      of: [{ type: 'string' }]
+    }
+  ]
+}

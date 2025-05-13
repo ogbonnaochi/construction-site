@@ -8,12 +8,12 @@ export default function Footer() {
   const [trackingEnabled, setTrackingEnabled] = useState(true);
   const mapRef = useRef<HTMLIFrameElement>(null);
   const [location, setLocation] = useState("Lagos, Nigeria");
-
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.src = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(location)}`;
-    }
-  }, [location]);
+  if (mapRef.current && GOOGLE_MAPS_API_KEY) {
+    mapRef.current.src = `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(location)}`;
+  }
+}, [location, GOOGLE_MAPS_API_KEY]);
 
   return (
     <>
@@ -33,7 +33,8 @@ export default function Footer() {
           <iframe
             ref={mapRef}
             className="w-full h-full"
-            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(location)}`}
+            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_REAL_API_KEY&q=${encodeURIComponent(location)}`}
+
             allowFullScreen
             loading="lazy"
           ></iframe>
