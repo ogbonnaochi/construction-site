@@ -16,25 +16,25 @@ export default function Projects() {
       id: "repair-maintenance",
       title: "Repair & Maintenance",
       description: "Ensuring long-lasting durability with expert maintenance services.",
-      image: "/images/repair-maintenance.jpg",
+      image: "/road.png",
     },
     {
       id: "power-supply",
       title: "Power Supply",
       description: "Providing reliable power solutions for industries and communities.",
-      image: "/images/power-supply.jpg",
+      image: "/power.jpg",
     },
     {
       id: "consultancy",
       title: "Consultancy",
       description: "Expert guidance to help you navigate complex engineering projects.",
-      image: "/images/consultancy.jpg",
+      image: "/tosh.png",
     },
     {
       id: "equipment",
       title: "Equipment",
       description: "Supplying high-quality machinery and tools for your projects.",
-      image: "/images/equipment.jpg",
+      image: "/equipment.jpg",
     },
   ];
 
@@ -87,27 +87,38 @@ export default function Projects() {
   return (
     <>
       {/* Projects Overview */}
-      <section id="projects" className="max-w-7xl mx-auto py-16 px-6 text-center bg-white">
-        <h2 className="text-5xl font-bold text-gray-900 mb-10">Our Projects</h2>
-        <p className="text-lg text-gray-600 mb-12">Explore our service categories below.</p>
+      {/* Projects Overview */}
+<section id="projects" className="max-w-7xl mx-auto py-16 px-6 text-center bg-white">
+  <h2 className="text-5xl font-bold text-gray-900 mb-10">Our Projects</h2>
+  <p className="text-lg text-gray-600 mb-12">Explore our service categories below.</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {projects.map((project) => (
-            <div key={project.id} className="bg-white border rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
-              <Image src={project.image} alt={project.title} width={400} height={250} className="w-full h-56 object-cover" />
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-                <p className="text-gray-600 mt-2">{project.description}</p>
-                <Link href={`/projects/${project.id}`} className="inline-block mt-4">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                    View Details
-                  </button>
-                </Link>
-              </div>
-            </div>
-          ))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+    {projects.map((project) => (
+      <div
+        key={project.id}
+        className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:ring-2 hover:ring-blue-300 transform hover:scale-105 transition-all duration-300 ease-in-out group"
+      >
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={400}
+          height={250}
+          className="w-full h-56 object-cover rounded-t-2xl transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="p-6">
+          <h3 className="text-2xl font-semibold text-gray-800">{project.title}</h3>
+          <p className="text-gray-600 mt-2">{project.description}</p>
+          <Link href={`/projects/${project.id}`} className="inline-block mt-4">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+              View Details
+            </button>
+          </Link>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Team Section */}
       <section className="bg-white py-16 px-6 max-w-7xl mx-auto text-center">
