@@ -69,9 +69,10 @@ const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
             </div>
           </div>
 
+
           {/* Tracking & Policies */}
           <div>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-gray-400 text-sm mt-2"> 
               Our website uses tracking technologies to learn how our visitors interact with our site so we can improve our services and provide valuable content.
             </p>
             <div className="mt-4 space-x-4">

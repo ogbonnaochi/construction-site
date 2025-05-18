@@ -8,6 +8,9 @@ import Services from "./components/Services";
 import Projects from "./components/Projects";
 import Vision from "./components/Vision";
 import Contact from "./components/Contact";
+import Team from "./components/Team";
+import Testimonial from "./components/Testimonial";
+
 
 export default function HomePage() {
   return (
@@ -18,6 +21,8 @@ export default function HomePage() {
       <Projects />
       <Vision />
       <Contact />
+      <Team />
+      <Testimonial />
     </>
   );
 }
