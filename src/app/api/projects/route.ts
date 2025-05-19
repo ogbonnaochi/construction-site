@@ -18,15 +18,11 @@ async function connectDB() {
   }
 }
 
-export async function GET() {
+export async function GET(_request: any, { params }: { params: { slug: string } }) {
   await connectDB();
-  const projects = await Project.find();
-  return NextResponse.json(projects);
-}
-
-export async function POST(request: Request) {
-  await connectDB();
-  const { title, description, slug, image } = await request.json();
-  const project = await Project.create({ title, description, slug, image });
+  const project = await Project.findOne({ slug: params.slug });
+  if (!project) {
+    return NextResponse.json({ message: "Project not found" }, { status: 404 });
+  }
   return NextResponse.json(project);
 }
