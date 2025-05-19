@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import { projects } from '../../../../lib/project';
 
-export async function GET(request: Request, { params }: { params: { slug: string } }) {
+export async function GET(_request: Request, { params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) {
