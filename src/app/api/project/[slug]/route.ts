@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 import { projects } from '../../../../lib/project';
 
-export async function GET(
-  _request: Request,
-  context: { params: { slug: string } }
-) {
+export async function GET(_request: any, context: any) {
   const project = projects.find((p) => p.slug === context.params.slug);
 
   if (!project) {
