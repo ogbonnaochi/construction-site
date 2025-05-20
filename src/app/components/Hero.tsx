@@ -1,9 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 const images = ["/site-one.png", "/site-two.jpg"]; // Add more images if needed
 
 export default function Hero() {
@@ -41,17 +37,11 @@ export default function Hero() {
         <p className="mt-4 text-lg md:text-xl">
           Quality construction services for residential, commercial, Roads and industrial projects.
         </p>
-<<<<<<< HEAD
         <a href="#contact" className="cusor-pointer">
         <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">
           Get a Free Quote
         </button>
         </a>
-=======
-        <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">
-          Get a Free Quote
-        </button>
->>>>>>> origin/main
       </div>
 
       {/* Image Indicators */}

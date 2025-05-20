@@ -2,10 +2,7 @@
 
 # dependencies
 /node_modules
-<<<<<<< HEAD
 /server/node_modules
-=======
->>>>>>> origin/main
 /.pnp
 .pnp.*
 .yarn/*
@@ -35,9 +32,6 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
-
-# vercel
 .vercel
 
 # typescript

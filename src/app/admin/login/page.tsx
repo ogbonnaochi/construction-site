@@ -1,6 +1,6 @@
 
 'use client';
-
+import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/auth/login', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/users/login`, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,16 @@ export default function AdminLoginPage() {
 
     if (res.ok) {
       // Redirect to admin dashboard
+      const body = await res.json();
+
+      const accessToken = body?.data?.accessToken;
+
+      console.log(accessToken)
+
+      localStorage.setItem("accesstoken", accessToken);
+
       router.push('/admin/dashboard');
+      
     } else {
       const data = await res.json();
       setError(data.message || 'Login failed');

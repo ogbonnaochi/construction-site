@@ -23,11 +23,7 @@ const projectSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
-    added_by: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    },
+
     category: {
         type: mongoose.Types.ObjectId,
         ref: 'Category',

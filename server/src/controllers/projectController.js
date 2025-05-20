@@ -30,6 +30,7 @@ export const updateProjectController = async (req, res, next) => {
 }
 
 // Category Controller
+
 export const createCategoryController = async (req, res, next) => {
     return await createCategoryService(req, res, next)
 }

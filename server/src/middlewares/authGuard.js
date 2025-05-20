@@ -28,7 +28,7 @@ export default async (req, res, next) => {
         req['user'] = account;
 
         next();
-        
+
     } catch (error) {
         return res.sendStatus(401);
     }

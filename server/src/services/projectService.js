@@ -3,29 +3,37 @@ import { Project, Category } from '../models/projectModel.js';
 
 // TODO: createProject & UpdateProject
 export const createProjectService = async (req, res, next) => {
-    const { name, description, category_id } = req.body;
 
+    const { slug, description, category_id } = req.body;
+
+    console.log('Creating project:', slug, description, category_id);
+    
     // Validate input
-    if (!name || !description || !category_id) {
+    if (!slug || !description || !category_id) {
         return res.status(400).json({ message: 'Name, description, and category_id are required.' });
     }
 
     try {
         // Optional: Check if category exists
-        const categoryExists = await Category.findById(category_id);
-        if (!categoryExists) {
+        const categoryExists = await Category.findOne({
+            $or: [
+                { _id: category_id },
+                { slug: category_id },
+                {slug: slug.toLowerCase()?.replace(/ /g, '-')},
+            ],
+        });
+        if (categoryExists) {
             return res.status(404).json({ message: 'Category not found.' });
         }
 
         // Create project
         const project = await Project.create({
-            name,
+            slug,
             description,
             category: category_id,
             image: req.file ? req.file.image : null,
-            slug: name.toLowerCase().replace(/ /g, '-'),
+            slug: slug.toLowerCase().replace(/ /g, '-'),
         });
-
         return res.status(201).json({ project });
     } catch (error) {
         console.error('Error creating project:', error);
@@ -94,12 +102,15 @@ export const updateProjectService = async (req, res, next) => {
 
 
 export const createCategoryService = async (req, res, next) => {
-    const { name, description } = req.body
+    const { name, description } = req.body;
+
+    console.log('Creating category:', name, description);
+    
     try {
         const category = await Category.create({ name, description })
-        return res.status(201).json({ category })
+        return res.status(201).json({ category, message: 'Category created successfully' })
     } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' })
+        return res.status(500).json({ message: 'Category already exist!' })
     }
 }
 
@@ -140,6 +151,24 @@ export const deleteCategoryService = async (req, res, next) => {
             return res.status(404).json({ message: 'Category not found' })
         }
         return res.status(200).json({ message: 'Category deleted successfully' })
+    } catch (error) {
+        return res.status(500).json({ message: 'Internal server error' })
+    }
+}
+
+export const updateCategoryService = async (req, res, next) => {
+    const { id } = req.params
+    const { name, description } = req.body
+    try {
+        const category = await Category.findByIdAndUpdate(
+            id,
+            { name, description },
+            { new: true }
+        )
+        if (!category) {
+            return res.status(404).json({ message: 'Category not found' })
+        }
+        return res.status(200).json({ category, message: 'Category updated successfully' })
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error' })
     }

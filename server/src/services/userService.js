@@ -50,10 +50,6 @@ export const loginService = async (req, res, next) => {
       .status(400)
       .json({ success: false, message: "Invalid email address" });
 
-  if (!password || password.length <= 6)
-    return res
-      .status(400)
-      .json({ success: false, message: "Password strength is required" });
 
   try {
     const account = await UserModel.findOne({ email }).select("+password");
